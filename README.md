@@ -35,7 +35,7 @@ implementation 'com.carsxe.api:carsxe-api-package:1.0.0'
 ### 🛠️ Initialize the API Client
 To use the CarsXE API, initialize the `CarsXE` class with your API key:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
 
 public class Main {
     public static void main(String[] args) {
@@ -47,14 +47,17 @@ public class Main {
 ### 📋 Example: VIN Lookup
 Retrieve vehicle specifications using a VIN:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         CarsXE carsXE = new CarsXE("Your_API_Key");
         try {
-            Map<String, String> params = Map.of("vin", "WBAFR7C57CC811956");
+            Map<String, String> params = new HashMap<>();
+            params.put("vin", "WBAFR7C57CC811956");
             String response = carsXE.specs(params);
             System.out.println("🚗 Vehicle Specs: " + response);
         } catch (Exception e) {
@@ -67,14 +70,18 @@ public class Main {
 ### 🔍 Example: Plate Recognition
 Decode license plate information:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         CarsXE carsXE = new CarsXE("Your_API_Key");
         try {
-            Map<String, String> params = Map.of("plate", "7XER187", "state", "CA");
+            Map<String, String> params = new HashMap<>();
+            params.put("plate", "7XER187");
+            params.put("state", "CA");
             String response = carsXE.platedecoder(params);
             System.out.println("📋 Plate Information: " + response);
         } catch (Exception e) {
@@ -87,14 +94,17 @@ public class Main {
 ### 💰 Example: Vehicle Market Value
 Retrieve the market value of a vehicle using its VIN:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         CarsXE carsXE = new CarsXE("Your_API_Key");
         try {
-            Map<String, String> params = Map.of("vin", "WBAFR7C57CC811956");
+            Map<String, String> params = new HashMap<>();
+            params.put("vin", "WBAFR7C57CC811956");
             String response = carsXE.marketvalue(params);
             System.out.println("💰 Market Value: " + response);
         } catch (Exception e) {
@@ -107,14 +117,17 @@ public class Main {
 ### 🛑 Example: OBD Code Decoder
 Decode OBD-II diagnostic trouble codes:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         CarsXE carsXE = new CarsXE("Your_API_Key");
         try {
-            Map<String, String> params = Map.of("code", "P0115");
+            Map<String, String> params = new HashMap<>();
+            params.put("code", "P0115");
             String response = carsXE.obdcodesdecoder(params);
             System.out.println("🛑 OBD Code Details: " + response);
         } catch (Exception e) {
@@ -127,14 +140,19 @@ public class Main {
 ### 🚙 Example: Year, Make, and Model Lookup
 Search for vehicle details using year, make, and model:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
+
+import java.util.HashMap;
 import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
         CarsXE carsXE = new CarsXE("Your_API_Key");
         try {
-            Map<String, String> params = Map.of("year", "2016", "make", "FIAT", "model", "500");
+            Map<String, String> params = new HashMap<>();
+            params.put("year", "2016");
+            params.put("make", "FIAT");
+            params.put("model", "500");
             String response = carsXE.yearMakeModel(params);
             System.out.println("🚙 Vehicle Details: " + response);
         } catch (Exception e) {
@@ -147,7 +165,7 @@ public class Main {
 ### 🖼️ Example: VIN OCR
 Extract VIN from an image:
 ```java
-import com.carsxe.api.CarsXE;
+package com.carsxe.api;
 
 public class Main {
     public static void main(String[] args) {
